@@ -4,18 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BabylonJS Viewer - Caizhen's Model</title>
-    <script src="https://cdn.babylonjs.com/viewer/babylon.viewer.js"></script>
+    <script src="https://preview.babylonjs.com/viewer/babylon.viewer.js"></script>
     <style>
-        /* 讓 viewer 撐滿整個畫面，不然可能會看不見 */
-        babylon {
+        body { font-family: sans-serif; text-align: center; }
+        #myViewer {
             width: 100%;
-            height: 500px;
+            height: 600px; /* 稍微調高，避免大模型被切掉 */
             display: block;
+            margin: 0 auto;
+            background-color: #f0f0f0;
         }
     </style>
 </head>
 <body>
     <h1>My 3D Model Showcase</h1>
-    <babylon id="myViewer" model="./models/cac-1774623951730.glb" templates.main.params.should-render="true"></babylon>
+    
+    <babylon id="myViewer" 
+        model="./models/cac-1774623951730.glb" 
+        templates.main.params.should-render="true"
+        templates.main.params.auto-animate="true"
+        camera.behaviors.auto-rotate="true"
+        extends="minimal">
+    </babylon>
+
+    <p>提示：若模型依然不會動，請按 F12 檢查 Console 是否有 404 錯誤。</p>
 </body>
 </html>
